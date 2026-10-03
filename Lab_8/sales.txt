@@ -1,0 +1,2 @@
+samsung	1800	2	Ann
+Vivo	1670	5	Varvara
