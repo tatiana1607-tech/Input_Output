@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <map>
 #include <set>
 #include <unordered_map>
@@ -18,21 +18,21 @@ using namespace std;
 void printCompactAppsTable(const map<string, MobileApp*>& appMap, ostream& os) {
     os << "+" << string(22, '-') << "+" << string(9, '-') << "+" << string(14, '-')
         << "+" << string(20, '-') << "+" << string(15, '-') << "+\n";
-    os << "| " << left << setw(20) << "Название"
-        << " | " << setw(7) << "Рейтинг"
-        << " | " << setw(12) << "Цена"
-        << " | " << setw(18) << "Разработчик"
-        << " | " << setw(13) << "Тип (B2C/B2B)" << " |\n";
+    os << "| " << left << setw(20) << "РќР°Р·РІР°РЅРёРµ"
+        << " | " << setw(7) << "Р РµР№С‚РёРЅРі"
+        << " | " << setw(12) << "Р¦РµРЅР°"
+        << " | " << setw(18) << "Р Р°Р·СЂР°Р±РѕС‚С‡РёРє"
+        << " | " << setw(13) << "РўРёРї (B2C/B2B)" << " |\n";
     os << "+" << string(22, '-') << "+" << string(9, '-') << "+" << string(14, '-')
         << "+" << string(20, '-') << "+" << string(15, '-') << "+\n";
 
     for (map<string, MobileApp*>::const_iterator it = appMap.begin(); it != appMap.end(); ++it) {
         if (it->second) {
-            string typeStr = dynamic_cast<UtilityApp*>(it->second) ? "B2C (Утилита)" : "B2B (Корпор.)";
+            string typeStr = dynamic_cast<UtilityApp*>(it->second) ? "B2C (РЈС‚РёР»РёС‚Р°)" : "B2B (РљРѕСЂРїРѕСЂ.)";
             os << "| " << left << setw(20) << it->second->getName()
                 << " | " << right << setw(7) << fixed << setprecision(1) << it->second->getRating()
                 << " | " << setw(12) << fixed << setprecision(2) << it->second->getPrice()
-                << " | " << left << setw(18) << (it->second->getLeadDeveloper() ? it->second->getLeadDeveloper()->getFullName() : "Нет")
+                << " | " << left << setw(18) << (it->second->getLeadDeveloper() ? it->second->getLeadDeveloper()->getFullName() : "РќРµС‚")
                 << " | " << setw(13) << typeStr << " |\n";
         }
     }
@@ -50,9 +50,9 @@ int main() {
     unordered_multimap<string, MobileApp*> devAppsMultiMap;
 
     list<Developer> staffList;
-    staffList.push_back(Developer("Иванов Иван", "TeamLead iOS", 7));
-    staffList.push_back(Developer("Петров Петр", "Senior Android Dev", 5));
-    staffList.push_back(Developer("Сидорова Анна", "Middle Flutter Dev", 3));
+    staffList.push_back(Developer("РРІР°РЅРѕРІ РРІР°РЅ", "TeamLead iOS", 7));
+    staffList.push_back(Developer("РџРµС‚СЂРѕРІ РџРµС‚СЂ", "Senior Android Dev", 5));
+    staffList.push_back(Developer("РЎРёРґРѕСЂРѕРІР° РђРЅРЅР°", "Middle Flutter Dev", 3));
 
     Developer* dev1 = &(*staffList.begin());
     Developer* dev2 = &(*(next(staffList.begin(), 1)));
@@ -61,7 +61,7 @@ int main() {
     UtilityApp* app1 = new UtilityApp("Fitness Tracker", 4.8, 0.0, dev1, true, "Android 11+");
     app1->addVersion(Version("1.0.0", "10.01.2026", 45.2));
 
-    EnterpriseApp* app2 = new EnterpriseApp("SberBank Mobile", 4.9, 1500000.0, dev2, "ПАО Сбербанк", "ГОСТ-34.12");
+    EnterpriseApp* app2 = new EnterpriseApp("SberBank Mobile", 4.9, 1500000.0, dev2, "РџРђРћ РЎР±РµСЂР±Р°РЅРє", "Р“РћРЎРў-34.12");
     app2->addVersion(Version("2.4.0", "12.08.2026", 120.5));
 
     UtilityApp* app3 = new UtilityApp("Photo Editor Pro", 4.2, 299.0, dev1, false, "Android 9+");
@@ -92,15 +92,15 @@ int main() {
     int mainMenuChoice = -1;
     do {
         cout << "\n===================================================\n";
-        cout << "                 ГЛАВНОЕ МЕНЮ  \n";
+        cout << "                 Р“Р›РђР’РќРћР• РњР•РќР®  \n";
         cout << "===================================================\n";
-        cout << " 1.Работа с map \n";
-        cout << " 2.Работа с set \n";
-        cout << " 3.Работа с multiset \n";
-        cout << " 4.Работа с unordered_multimap \n";
-        cout << " 0. Выход\n";
+        cout << " 1.Р Р°Р±РѕС‚Р° СЃ map \n";
+        cout << " 2.Р Р°Р±РѕС‚Р° СЃ set \n";
+        cout << " 3.Р Р°Р±РѕС‚Р° СЃ multiset \n";
+        cout << " 4.Р Р°Р±РѕС‚Р° СЃ unordered_multimap \n";
+        cout << " 0. Р’С‹С…РѕРґ\n";
         cout << "---------------------------------------------------\n";
-        cout << "Выберите контейнер для работы: ";
+        cout << "Р’С‹Р±РµСЂРёС‚Рµ РєРѕРЅС‚РµР№РЅРµСЂ РґР»СЏ СЂР°Р±РѕС‚С‹: ";
         cin >> mainMenuChoice;
 
         switch (mainMenuChoice) {
@@ -108,16 +108,16 @@ int main() {
             int subChoice = -1;
             do {
                 cout << "\n----------------------------------------\n";
-                cout << "       Работа с приложениями      \n";
+                cout << "       Р Р°Р±РѕС‚Р° СЃ РїСЂРёР»РѕР¶РµРЅРёСЏРјРё      \n";
                 cout << "----------------------------------------\n";
-                cout << " 1. Посмотреть компактный список\n";
-                cout << " 2. Посмотреть полную информацию о конкретном приложении\n";
-                cout << " 3. Добавить приложение\n";
-                cout << " 4. Найти приложение по имени (find)\n";
-                cout << " 5. Удалить приложение из map\n";
-                cout << " 6. Сохранить каталог в файл\n";
-                cout << " 0. Назад в главное меню\n";
-                cout << "Выберите пункт: ";
+                cout << " 1. РџРѕСЃРјРѕС‚СЂРµС‚СЊ РєРѕРјРїР°РєС‚РЅС‹Р№ СЃРїРёСЃРѕРє\n";
+                cout << " 2. РџРѕСЃРјРѕС‚СЂРµС‚СЊ РїРѕР»РЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РєРѕРЅРєСЂРµС‚РЅРѕРј РїСЂРёР»РѕР¶РµРЅРёРё\n";
+                cout << " 3. Р”РѕР±Р°РІРёС‚СЊ РїСЂРёР»РѕР¶РµРЅРёРµ\n";
+                cout << " 4. РќР°Р№С‚Рё РїСЂРёР»РѕР¶РµРЅРёРµ РїРѕ РёРјРµРЅРё (find)\n";
+                cout << " 5. РЈРґР°Р»РёС‚СЊ РїСЂРёР»РѕР¶РµРЅРёРµ РёР· map\n";
+                cout << " 6. РЎРѕС…СЂР°РЅРёС‚СЊ РєР°С‚Р°Р»РѕРі РІ С„Р°Р№Р»\n";
+                cout << " 0. РќР°Р·Р°Рґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ\n";
+                cout << "Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚: ";
                 cin >> subChoice;
 
                 switch (subChoice) {
@@ -128,73 +128,73 @@ int main() {
                 }
                 case 2: {
                     string name;
-                    cout << "Введите название приложения для просмотра деталей: ";
+                    cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРёР»РѕР¶РµРЅРёСЏ РґР»СЏ РїСЂРѕСЃРјРѕС‚СЂР° РґРµС‚Р°Р»РµР№: ";
                     cin.clear();
                     cin.ignore(32767, '\n');
                     getline(cin, name);
 
                     map<string, MobileApp*>::const_iterator it = appMap.find(name);
                     if (it != appMap.end() && it->second) {
-                        cout << "\n--- ДЕТАЛЬНАЯ ИНФОРМАЦИЯ ---\n";
+                        cout << "\n--- Р”Р•РўРђР›Р¬РќРђРЇ РРќР¤РћР РњРђР¦РРЇ ---\n";
                         it->second->printTableRow(cout);
                     }
                     else {
-                        cout << "Приложение не найдено.\n";
+                        cout << "РџСЂРёР»РѕР¶РµРЅРёРµ РЅРµ РЅР°Р№РґРµРЅРѕ.\n";
                     }
                     break;
                 }
                 case 3: {
                     string name; double rating, price;
-                    cout << "Название приложения: ";
+                    cout << "РќР°Р·РІР°РЅРёРµ РїСЂРёР»РѕР¶РµРЅРёСЏ: ";
                     cin.ignore(); getline(cin, name);
-                    cout << "Рейтинг: "; cin >> rating;
-                    cout << "Цена: "; cin >> price;
+                    cout << "Р РµР№С‚РёРЅРі: "; cin >> rating;
+                    cout << "Р¦РµРЅР°: "; cin >> price;
 
                     UtilityApp* newApp = new UtilityApp(name, rating, price, dev1, false, "Android 10+");
                     appMap[name] = newApp;
                     ratingMultiset.insert(rating);
                     devAppsMultiMap.insert(make_pair(dev1->getFullName(), newApp));
 
-                    cout << "Приложение добавлено в map!\n";
+                    cout << "РџСЂРёР»РѕР¶РµРЅРёРµ РґРѕР±Р°РІР»РµРЅРѕ РІ map!\n";
                     break;
                 }
                 case 4: {
                     string name;
-                    cout << "Введите название приложения: "; cin.ignore(); getline(cin, name);
+                    cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРёР»РѕР¶РµРЅРёСЏ: "; cin.ignore(); getline(cin, name);
                     map<string, MobileApp*>::const_iterator it = appMap.find(name);
                     if (it != appMap.end()) {
-                        cout << "Найдено в map:\n";
+                        cout << "РќР°Р№РґРµРЅРѕ РІ map:\n";
                         it->second->printTableRow(cout);
                     }
                     else {
-                        cout << "Приложение с таким именем не найдено.\n";
+                        cout << "РџСЂРёР»РѕР¶РµРЅРёРµ СЃ С‚Р°РєРёРј РёРјРµРЅРµРј РЅРµ РЅР°Р№РґРµРЅРѕ.\n";
                     }
                     break;
                 }
                 case 5: {
                     string name;
-                    cout << "Введите название приложения для удаления из map: "; cin.ignore(); getline(cin, name);
+                    cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРёР»РѕР¶РµРЅРёСЏ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РёР· map: "; cin.ignore(); getline(cin, name);
                     map<string, MobileApp*>::iterator it = appMap.find(name);
                     if (it != appMap.end()) {
                         delete it->second;
                         appMap.erase(it);
-                        cout << "Успешно удалено из map.\n";
+                        cout << "РЈСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅРѕ РёР· map.\n";
                     }
                     else {
-                        cout << "Элемент не найден.\n";
+                        cout << "Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ.\n";
                     }
                     break;
                 }
                 case 6: {
                     ofstream outFile("map_report.txt");
-                    outFile << "=== КАТАЛОГ ПРИЛОЖЕНИЙ ===\n\n";
+                    outFile << "=== РљРђРўРђР›РћР“ РџР РР›РћР–Р•РќРР™ ===\n\n";
                     printCompactAppsTable(appMap, outFile);
                     outFile.close();
-                    cout << "Отчет сохранен в файл map_report.txt\n";
+                    cout << "РћС‚С‡РµС‚ СЃРѕС…СЂР°РЅРµРЅ РІ С„Р°Р№Р» map_report.txt\n";
                     break;
                 }
                 case 0: break;
-                default: cout << "Неверный выбор.\n";
+                default: cout << "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ.\n";
                 }
             } while (subChoice != 0);
             break;
@@ -203,19 +203,19 @@ int main() {
             int subChoice = -1;
             do {
                 cout << "\n----------------------------------------\n";
-                cout << "       Работа с платформами    \n";
+                cout << "       Р Р°Р±РѕС‚Р° СЃ РїР»Р°С‚С„РѕСЂРјР°РјРё    \n";
                 cout << "----------------------------------------\n";
-                cout << " 1. Посмотреть все платформы\n";
-                cout << " 2. Добавить платформу\n";
-                cout << " 3. Проверить наличие платформы \n";
-                cout << " 4. Удалить платформу\n";
-                cout << " 0. Назад в главное меню\n";
-                cout << "Выберите пункт: ";
+                cout << " 1. РџРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ РїР»Р°С‚С„РѕСЂРјС‹\n";
+                cout << " 2. Р”РѕР±Р°РІРёС‚СЊ РїР»Р°С‚С„РѕСЂРјСѓ\n";
+                cout << " 3. РџСЂРѕРІРµСЂРёС‚СЊ РЅР°Р»РёС‡РёРµ РїР»Р°С‚С„РѕСЂРјС‹ \n";
+                cout << " 4. РЈРґР°Р»РёС‚СЊ РїР»Р°С‚С„РѕСЂРјСѓ\n";
+                cout << " 0. РќР°Р·Р°Рґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ\n";
+                cout << "Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚: ";
                 cin >> subChoice;
 
                 switch (subChoice) {
                 case 1: {
-                    cout << "\nУникальные отсортированные платформы:\n";
+                    cout << "\nРЈРЅРёРєР°Р»СЊРЅС‹Рµ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Рµ РїР»Р°С‚С„РѕСЂРјС‹:\n";
                     for (set<string>::const_iterator it = targetPlatforms.begin(); it != targetPlatforms.end(); ++it) {
                         cout << " - " << *it << "\n";
                     }
@@ -223,31 +223,31 @@ int main() {
                 }
                 case 2: {
                     string name;
-                    cout << "Название новой платформы: "; cin.ignore(); getline(cin, name);
+                    cout << "РќР°Р·РІР°РЅРёРµ РЅРѕРІРѕР№ РїР»Р°С‚С„РѕСЂРјС‹: "; cin.ignore(); getline(cin, name);
                     targetPlatforms.insert(name);
-                    cout << "Добавлено в set.\n";
+                    cout << "Р”РѕР±Р°РІР»РµРЅРѕ РІ set.\n";
                     break;
                 }
                 case 3: {
                     string name;
-                    cout << "Введите название платформы для проверки: "; cin.ignore(); getline(cin, name);
+                    cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїР»Р°С‚С„РѕСЂРјС‹ РґР»СЏ РїСЂРѕРІРµСЂРєРё: "; cin.ignore(); getline(cin, name);
                     if (targetPlatforms.count(name) > 0) {
-                        cout << "Платформа '" << name << "' присутствует в множестве.\n";
+                        cout << "РџР»Р°С‚С„РѕСЂРјР° '" << name << "' РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ РІ РјРЅРѕР¶РµСЃС‚РІРµ.\n";
                     }
                     else {
-                        cout << "Платформа не найдена.\n";
+                        cout << "РџР»Р°С‚С„РѕСЂРјР° РЅРµ РЅР°Р№РґРµРЅР°.\n";
                     }
                     break;
                 }
                 case 4: {
                     string name;
-                    cout << "Название платформы для удаления: "; cin.ignore(); getline(cin, name);
-                    if (targetPlatforms.erase(name) > 0) cout << "Удалено из set.\n";
-                    else cout << "Элемент не найден.\n";
+                    cout << "РќР°Р·РІР°РЅРёРµ РїР»Р°С‚С„РѕСЂРјС‹ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: "; cin.ignore(); getline(cin, name);
+                    if (targetPlatforms.erase(name) > 0) cout << "РЈРґР°Р»РµРЅРѕ РёР· set.\n";
+                    else cout << "Р­Р»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ.\n";
                     break;
                 }
                 case 0: break;
-                default: cout << "Неверный выбор.\n";
+                default: cout << "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ.\n";
                 }
             } while (subChoice != 0);
             break;
@@ -256,17 +256,17 @@ int main() {
             int subChoice = -1;
             do {
                 cout << "\n----------------------------------------\n";
-                cout << "       Работа с рейтингами    \n";
+                cout << "       Р Р°Р±РѕС‚Р° СЃ СЂРµР№С‚РёРЅРіР°РјРё    \n";
                 cout << "----------------------------------------\n";
-                cout << " 1. Посмотреть отсортированные рейтинги\n";
-                cout << " 2. Посчитать количество одинаковых рейтингов (count)\n";
-                cout << " 0. Назад в главное меню\n";
-                cout << "Выберите пункт: ";
+                cout << " 1. РџРѕСЃРјРѕС‚СЂРµС‚СЊ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Рµ СЂРµР№С‚РёРЅРіРё\n";
+                cout << " 2. РџРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕРґРёРЅР°РєРѕРІС‹С… СЂРµР№С‚РёРЅРіРѕРІ (count)\n";
+                cout << " 0. РќР°Р·Р°Рґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ\n";
+                cout << "Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚: ";
                 cin >> subChoice;
 
                 switch (subChoice) {
                 case 1: {
-                    cout << "\nСписок всех рейтингов (отсортирован, с повторами):\n";
+                    cout << "\nРЎРїРёСЃРѕРє РІСЃРµС… СЂРµР№С‚РёРЅРіРѕРІ (РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅ, СЃ РїРѕРІС‚РѕСЂР°РјРё):\n";
                     for (multiset<double>::const_iterator it = ratingMultiset.begin(); it != ratingMultiset.end(); ++it) {
                         cout << fixed << setprecision(1) << *it << "  ";
                     }
@@ -276,13 +276,13 @@ int main() {
                 
                 case 2: {
                     double val;
-                    cout << "Введите рейтинг для подсчета: "; cin >> val;
+                    cout << "Р’РІРµРґРёС‚Рµ СЂРµР№С‚РёРЅРі РґР»СЏ РїРѕРґСЃС‡РµС‚Р°: "; cin >> val;
                     size_t cnt = ratingMultiset.count(val);
-                    cout << "Количество приложений с рейтингом " << val << ": " << cnt << "\n";
+                    cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРёР»РѕР¶РµРЅРёР№ СЃ СЂРµР№С‚РёРЅРіРѕРј " << val << ": " << cnt << "\n";
                     break;
                 }
                 case 0: break;
-                default: cout << "Неверный выбор.\n";
+                default: cout << "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ.\n";
                 }
             } while (subChoice != 0);
             break;
@@ -291,31 +291,31 @@ int main() {
             int subChoice = -1;
             do {
                 cout << "\n----------------------------------------\n";
-                cout << "      Работа с разработчиками \n";
+                cout << "      Р Р°Р±РѕС‚Р° СЃ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР°РјРё \n";
                 cout << "----------------------------------------\n";
-                cout << " 1. Посмотреть всю хеш-карту\n";
-                cout << " 2. Найти все приложения разработчика \n";
-                cout << " 0. Назад в главное меню\n";
-                cout << "Выберите пункт: ";
+                cout << " 1. РџРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃСЋ С…РµС€-РєР°СЂС‚Сѓ\n";
+                cout << " 2. РќР°Р№С‚Рё РІСЃРµ РїСЂРёР»РѕР¶РµРЅРёСЏ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР° \n";
+                cout << " 0. РќР°Р·Р°Рґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ\n";
+                cout << "Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚: ";
                 cin >> subChoice;
 
                 switch (subChoice) {
                 case 1: {
                     
                     for (unordered_multimap<string, MobileApp*>::const_iterator it = devAppsMultiMap.begin(); it != devAppsMultiMap.end(); ++it) {
-                        cout << "Разработчик:"<< it->first<<"|";
-                        if (it->second) cout << it->second->getName() << " (Рейтинг: " << it->second->getRating() << ")\n";
+                        cout << "Р Р°Р·СЂР°Р±РѕС‚С‡РёРє:"<< it->first<<"|";
+                        if (it->second) cout << it->second->getName() << " (Р РµР№С‚РёРЅРі: " << it->second->getRating() << ")\n";
                         else cout << "nullptr\n";
                     }
                     break;
                 }
                 case 2: {
                     string devName;
-                    cout << "Введите ФИО разработчика: "; cin.ignore(); getline(cin, devName);
+                    cout << "Р’РІРµРґРёС‚Рµ Р¤РРћ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР°: "; cin.ignore(); getline(cin, devName);
 
                     pair<unordered_multimap<string, MobileApp*>::const_iterator, unordered_multimap<string, MobileApp*>::const_iterator> range = devAppsMultiMap.equal_range(devName);
 
-                    cout << "\nРезультаты поиска для разработчика '" << devName << "':\n";
+                    cout << "\nР РµР·СѓР»СЊС‚Р°С‚С‹ РїРѕРёСЃРєР° РґР»СЏ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР° '" << devName << "':\n";
                     bool found = false;
                     for (unordered_multimap<string, MobileApp*>::const_iterator it = range.first; it != range.second; ++it) {
                         if (it->second) {
@@ -323,20 +323,20 @@ int main() {
                             found = true;
                         }
                     }
-                    if (!found) cout << "Приложений для данного разработчика не найдено.\n";
+                    if (!found) cout << "РџСЂРёР»РѕР¶РµРЅРёР№ РґР»СЏ РґР°РЅРЅРѕРіРѕ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР° РЅРµ РЅР°Р№РґРµРЅРѕ.\n";
                     break;
                 }
                 case 0: break;
-                default: cout << "Неверный выбор.\n";
+                default: cout << "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ.\n";
                 }
             } while (subChoice != 0);
             break;
         }
         case 0:
-            cout << "Выход из программы...\n";
+            cout << "Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹...\n";
             break;
         default:
-            cout << "Неверный выбор. Попробуйте снова.\n";
+            cout << "РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.\n";
         }
     } while (mainMenuChoice != 0);
 
