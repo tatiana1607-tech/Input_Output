@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <vector>
 #include <list>
 #include <array>
@@ -18,12 +18,12 @@ using namespace std;
 void printAppsTable(const vector<MobileApp*>& apps, ostream& os) {
     os << "+" << string(22, '-') << "+" << string(9, '-') << "+" << string(18, '-')
         << "+" << string(22, '-') << "+" << string(10, '-') << "+" << string(45, '-') << "+\n";
-    os << "| " << left << setw(20) << "Íàçâàíèå"
-        << " | " << setw(7) << "Ðåéòèíã"
-        << " | " << setw(16) << "Öåíà"
-        << " | " << setw(20) << "Âåäóùèé ðàçðàá."
-        << " | " << setw(8) << "Âåðñèÿ"
-        << " | " << setw(43) << "Ñïåöèôèêà (B2C/B2B)" << " |\n";
+    os << "| " << left << setw(20) << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ"
+        << " | " << setw(7) << "Ð ÐµÐ¹Ñ‚Ð¸Ð½Ð³"
+        << " | " << setw(16) << "Ð¦ÐµÐ½Ð°"
+        << " | " << setw(20) << "Ð’ÐµÐ´ÑƒÑ‰Ð¸Ð¹ Ñ€Ð°Ð·Ñ€Ð°Ð±."
+        << " | " << setw(8) << "Ð’ÐµÑ€ÑÐ¸Ñ"
+        << " | " << setw(43) << "Ð¡Ð¿ÐµÑ†Ð¸Ñ„Ð¸ÐºÐ° (B2C/B2B)" << " |\n";
     os << "+" << string(22, '-') << "+" << string(9, '-') << "+" << string(18, '-')
         << "+" << string(22, '-') << "+" << string(10, '-') << "+" << string(45, '-') << "+\n";
     for (size_t i = 0; i < apps.size(); ++i) {
@@ -35,9 +35,9 @@ void printAppsTable(const vector<MobileApp*>& apps, ostream& os) {
 
 void printDevsTable(const list<Developer>& devs, ostream& os) {
     os << "+" << string(27, '-') << "+" << string(22, '-') << "+" << string(14, '-') << "+\n";
-    os << "| " << left << setw(25) << "ÔÈÎ Ðàçðàáîò÷èêà"
-        << " | " << setw(20) << "Äîëæíîñòü"
-        << " | " << setw(12) << "Ñòàæ (ëåò)" << " |\n";
+    os << "| " << left << setw(25) << "Ð¤Ð˜Ðž Ð Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚Ñ‡Ð¸ÐºÐ°"
+        << " | " << setw(20) << "Ð”Ð¾Ð»Ð¶Ð½Ð¾ÑÑ‚ÑŒ"
+        << " | " << setw(12) << "Ð¡Ñ‚Ð°Ð¶ (Ð»ÐµÑ‚)" << " |\n";
     os << "+" << string(27, '-') << "+" << string(22, '-') << "+" << string(14, '-') << "+\n";
     for (std::list<Developer>::const_iterator it = devs.begin(); it != devs.end(); ++it) {
         it->printTableRow(os);
@@ -47,8 +47,8 @@ void printDevsTable(const list<Developer>& devs, ostream& os) {
 
 void printPlatformsTable(const array<string, 4>& platforms, ostream& os) {
     os << "+" << string(8, '-') << "+" << string(35, '-') << "+\n";
-    os << "| " << left << setw(6) << "Èíäåêñ"
-        << " | " << setw(33) << "Ïëàòôîðìà" << " |\n";
+    os << "| " << left << setw(6) << "Ð˜Ð½Ð´ÐµÐºÑ"
+        << " | " << setw(33) << "ÐŸÐ»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼Ð°" << " |\n";
     os << "+" << string(8, '-') << "+" << string(35, '-') << "+\n";
     for (size_t i = 0; i < platforms.size(); ++i) {
         os << "| " << right << setw(6) << i
@@ -65,9 +65,9 @@ int main() {
     list<Developer> staffList;
     array<string, 4> targetPlatforms = { "Android (Google Play)", "iOS (App Store)", "HarmonyOS", "Web App" };
 
-    staffList.push_back(Developer("Èâàíîâ Èâàí", "TeamLead iOS", 7));
-    staffList.push_back(Developer("Ïåòðîâ Ïåòð", "Senior Android Dev", 5));
-    staffList.push_back(Developer("Ñèäîðîâà Àííà", "Middle Flutter Dev", 3));
+    staffList.push_back(Developer("Ð˜Ð²Ð°Ð½Ð¾Ð² Ð˜Ð²Ð°Ð½", "TeamLead iOS", 7));
+    staffList.push_back(Developer("ÐŸÐµÑ‚Ñ€Ð¾Ð² ÐŸÐµÑ‚Ñ€", "Senior Android Dev", 5));
+    staffList.push_back(Developer("Ð¡Ð¸Ð´Ð¾Ñ€Ð¾Ð²Ð° ÐÐ½Ð½Ð°", "Middle Flutter Dev", 3));
 
     Developer* dev1 = &(*staffList.begin());
     Developer* dev2 = &(*(next(staffList.begin(), 1)));
@@ -77,7 +77,7 @@ int main() {
     app1->addVersion(Version("1.0.0", "10.01.2026", 45.2));
     app1->addVersion(Version("1.1.0", "15.05.2026", 48.0));
 
-    EnterpriseApp* app2 = new EnterpriseApp("SberBank Mobile", 4.9, 1500000.0, dev2, "ÏÀÎ Ñáåðáàíê", "ÃÎÑÒ-34.12");
+    EnterpriseApp* app2 = new EnterpriseApp("SberBank Mobile", 4.9, 1500000.0, dev2, "ÐŸÐÐž Ð¡Ð±ÐµÑ€Ð±Ð°Ð½Ðº", "Ð“ÐžÐ¡Ð¢-34.12");
     app2->addVersion(Version("2.4.0", "12.08.2026", 120.5));
     app2->addVersion(Version("2.5.1", "01.10.2026", 125.0));
 
@@ -88,7 +88,7 @@ int main() {
     UtilityApp* app4 = new UtilityApp("Weather Forecast", 2.9, 0.0, dev3, false, "Android 8+");
     app4->addVersion(Version("0.9.1", "01.02.2026", 15.4));
 
-    EnterpriseApp* app5 = new EnterpriseApp("ERP Logistics", 4.6, 500000.0, dev1, "ÎÎÎ Ëîãèñòèê", "AES-256");
+    EnterpriseApp* app5 = new EnterpriseApp("ERP Logistics", 4.6, 500000.0, dev1, "ÐžÐžÐž Ð›Ð¾Ð³Ð¸ÑÑ‚Ð¸Ðº", "AES-256");
     app5->addVersion(Version("3.0.1", "20.07.2026", 210.0));
     app5->addVersion(Version("3.1.0", "10.09.2026", 215.4));
 
@@ -105,14 +105,14 @@ int main() {
     int mainMenuChoice = -1;
     do {
         cout << "\n========================================\n";
-        cout << "             ÃËÀÂÍÎÅ ÌÅÍÞ               \n";
+        cout << "             Ð“Ð›ÐÐ’ÐÐžÐ• ÐœÐ•ÐÐ®               \n";
         cout << "========================================\n";
-        cout << " 1. Ðàáîòà ñ âåêòîðîì (Ïðèëîæåíèÿ)\n";
-        cout << " 2. Ðàáîòà ñî ñïèñêîì (Ñîòðóäíèêè)\n";
-        cout << " 3. Ðàáîòà ñ ìàññèâîì (Ïëàòôîðìû)\n";
-        cout << " 0. Âûõîä\n";
+        cout << " 1. Ð Ð°Ð±Ð¾Ñ‚Ð° Ñ Ð²ÐµÐºÑ‚Ð¾Ñ€Ð¾Ð¼ (ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ)\n";
+        cout << " 2. Ð Ð°Ð±Ð¾Ñ‚Ð° ÑÐ¾ ÑÐ¿Ð¸ÑÐºÐ¾Ð¼ (Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¸)\n";
+        cout << " 3. Ð Ð°Ð±Ð¾Ñ‚Ð° Ñ Ð¼Ð°ÑÑÐ¸Ð²Ð¾Ð¼ (ÐŸÐ»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼Ñ‹)\n";
+        cout << " 0. Ð’Ñ‹Ñ…Ð¾Ð´\n";
         cout << "----------------------------------------\n";
-        cout << "Âûáåðèòå ïóíêò: ";
+        cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¿ÑƒÐ½ÐºÑ‚: ";
         cin >> mainMenuChoice;
 
         switch (mainMenuChoice) {
@@ -120,21 +120,21 @@ int main() {
             int subChoice = -1;
             do {
                 cout << "\n----------------------------------------\n";
-                cout << "       ÏÎÄÌÅÍÞ: ÐÀÁÎÒÀ Ñ ÂÅÊÒÎÐÎÌ       \n";
+                cout << "       ÐŸÐžÐ”ÐœÐ•ÐÐ®: Ð ÐÐ‘ÐžÐ¢Ð Ð¡ Ð’Ð•ÐšÐ¢ÐžÐ ÐžÐœ       \n";
                 cout << "----------------------------------------\n";
-                cout << " 1. Ïîñìîòðåòü ñïèñîê ïðèëîæåíèé\n";
-                cout << " 2. Äîáàâèòü ïðèëîæåíèå\n";
-                cout << " 3. Óäàëèòü ïðèëîæåíèå\n";
-                cout << " 4. Ðåäàêòèðîâàòü ïðèëîæåíèå\n";
-                cout << " 5. Íàéòè ïðèëîæåíèå\n";
-                cout << " 6. Îòñîðòèðîâàòü ïðèëîæåíèÿ ïî ðåéòèíãó\n";
-                cout << " 0. Íàçàä â ãëàâíîå ìåíþ\n";
-                cout << "Âûáåðèòå ïóíêò: ";
+                cout << " 1. ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¹\n";
+                cout << " 2. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ\n";
+                cout << " 3. Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ\n";
+                cout << " 4. Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ\n";
+                cout << " 5. ÐÐ°Ð¹Ñ‚Ð¸ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ\n";
+                cout << " 6. ÐžÑ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¿Ð¾ Ñ€ÐµÐ¹Ñ‚Ð¸Ð½Ð³Ñƒ\n";
+                cout << " 0. ÐÐ°Ð·Ð°Ð´ Ð² Ð³Ð»Ð°Ð²Ð½Ð¾Ðµ Ð¼ÐµÐ½ÑŽ\n";
+                cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¿ÑƒÐ½ÐºÑ‚: ";
                 cin >> subChoice;
 
                 switch (subChoice) {
                 case 1: {
-                    cout << "\nÑïèñîê ïðèëîæåíèé:\n";
+                    cout << "\nÐ¡Ð¿Ð¸ÑÐ¾Ðº Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¹:\n";
                     printAppsTable(appCatalog, cout);
                     ofstream f("apps_report.txt");
                     printAppsTable(appCatalog, f);
@@ -144,20 +144,20 @@ int main() {
                 case 2: {
                     string name; double rating, price;
                     int appType;
-                    cout << "Âûáåðèòå òèï ïðèëîæåíèÿ (1 - Óòèëèòà [B2C], 2 - Êîðïîðàòèâíîå [B2B]): ";
+                    cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ (1 - Ð£Ñ‚Ð¸Ð»Ð¸Ñ‚Ð° [B2C], 2 - ÐšÐ¾Ñ€Ð¿Ð¾Ñ€Ð°Ñ‚Ð¸Ð²Ð½Ð¾Ðµ [B2B]): ";
                     cin >> appType;
 
-                    cout << "Íàçâàíèå: ";
+                    cout << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ: ";
                     cin.ignore();
                     getline(cin, name);
-                    cout << "Ðåéòèíã: "; cin >> rating;
-                    cout << "Öåíà: "; cin >> price;
+                    cout << "Ð ÐµÐ¹Ñ‚Ð¸Ð½Ð³: "; cin >> rating;
+                    cout << "Ð¦ÐµÐ½Ð°: "; cin >> price;
 
                     if (appType == 1) {
                         bool sub;
                         string osVer;
-                        cout << "Òðåáóåòñÿ ïîäïèñêà (1 - Äà, 0 - Íåò): "; cin >> sub;
-                        cout << "Öåëåâàÿ âåðñèÿ ÎÑ (íàïðèìåð, Android 11+): "; cin.ignore(); getline(cin, osVer);
+                        cout << "Ð¢Ñ€ÐµÐ±ÑƒÐµÑ‚ÑÑ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐºÐ° (1 - Ð”Ð°, 0 - ÐÐµÑ‚): "; cin >> sub;
+                        cout << "Ð¦ÐµÐ»ÐµÐ²Ð°Ñ Ð²ÐµÑ€ÑÐ¸Ñ ÐžÐ¡ (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, Android 11+): "; cin.ignore(); getline(cin, osVer);
 
                         UtilityApp* uApp = new UtilityApp(name, rating, price, dev1, sub, osVer);
                         uApp->addVersion(Version("1.0.0", "01.01.2026", 50.0));
@@ -165,57 +165,57 @@ int main() {
                     }
                     else if (appType == 2) {
                         string client, sec;
-                        cout << "Êîìïàíèÿ-çàêàç÷èê: "; cin.ignore(); getline(cin, client);
-                        cout << "Ïðîòîêîë áåçîïàñíîñòè (íàïðèìåð, ÃÎÑÒ-34.12): "; getline(cin, sec);
+                        cout << "ÐšÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ñ-Ð·Ð°ÐºÐ°Ð·Ñ‡Ð¸Ðº: "; cin.ignore(); getline(cin, client);
+                        cout << "ÐŸÑ€Ð¾Ñ‚Ð¾ÐºÐ¾Ð» Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑ‚Ð¸ (Ð½Ð°Ð¿Ñ€Ð¸Ð¼ÐµÑ€, Ð“ÐžÐ¡Ð¢-34.12): "; getline(cin, sec);
 
                         EnterpriseApp* eApp = new EnterpriseApp(name, rating, price, dev1, client, sec);
                         eApp->addVersion(Version("1.0.0", "01.01.2026", 100.0));
                         appCatalog.push_back(eApp);
                     }
                     else {
-                        cout << "Íåâåðíûé òèï. Ïî óìîë÷àíèþ ñîçäàíà óòèëèòà.\n";
+                        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ñ‚Ð¸Ð¿. ÐŸÐ¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ ÑÐ¾Ð·Ð´Ð°Ð½Ð° ÑƒÑ‚Ð¸Ð»Ð¸Ñ‚Ð°.\n";
                         UtilityApp* uApp = new UtilityApp(name, rating, price, dev1, false, "Android 10+");
                         uApp->addVersion(Version("1.0.0", "01.01.2026", 50.0));
                         appCatalog.push_back(uApp);
                     }
 
-                    cout << "Ïðèëîæåíèå óñïåøíî äîáàâëåíî â êàòàëîã.\n";
+                    cout << "ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¾ Ð² ÐºÐ°Ñ‚Ð°Ð»Ð¾Ð³.\n";
                     break;
                 }
                 case 3: {
                     int idx;
-                    cout << "Ââåäèòå èíäåêñ äëÿ óäàëåíèÿ (0 - " << appCatalog.size() - 1 << "): ";
+                    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ Ð´Ð»Ñ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ (0 - " << appCatalog.size() - 1 << "): ";
                     cin >> idx;
                     if (idx >= 0 && idx < (int)appCatalog.size()) {
                         delete appCatalog[idx];
                         appCatalog.erase(appCatalog.begin() + idx);
-                        cout << "Ïðèëîæåíèå óäàëåíî.\n";
+                        cout << "ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¾.\n";
                     }
                     else {
-                        cout << "Íåâåðíûé èíäåêñ.\n";
+                        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð¸Ð½Ð´ÐµÐºÑ.\n";
                     }
                     break;
                 }
                 case 4: {
                     int idx;
-                    cout << "Ââåäèòå èíäåêñ äëÿ ðåäàêòèðîâàíèÿ (0 - " << appCatalog.size() - 1 << "): ";
+                    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ Ð´Ð»Ñ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ (0 - " << appCatalog.size() - 1 << "): ";
                     cin >> idx;
                     if (idx >= 0 && idx < (int)appCatalog.size()) {
                         string newName; double newRating;
-                        cout << "Íîâîå íàçâàíèå: "; cin >> newName;
-                        cout << "Íîâûé ðåéòèíã: "; cin >> newRating;
+                        cout << "ÐÐ¾Ð²Ð¾Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ: "; cin >> newName;
+                        cout << "ÐÐ¾Ð²Ñ‹Ð¹ Ñ€ÐµÐ¹Ñ‚Ð¸Ð½Ð³: "; cin >> newRating;
                         appCatalog[idx]->setName(newName);
                         appCatalog[idx]->setRating(newRating);
-                        cout << "Äàííûå îáíîâëåíû.\n";
+                        cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ñ‹.\n";
                     }
                     else {
-                        cout << "Íåâåðíûé èíäåêñ.\n";
+                        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð¸Ð½Ð´ÐµÐºÑ.\n";
                     }
                     break;
                 }
                 case 5: {
                     string query;
-                    cout << "Ââåäèòå íàçâàíèå äëÿ ïîèñêà: "; cin >> query;
+                    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð´Ð»Ñ Ð¿Ð¾Ð¸ÑÐºÐ°: "; cin >> query;
                     bool found = false;
                     for (size_t i = 0; i < appCatalog.size(); ++i) {
                         if (appCatalog[i]->getName() == query) {
@@ -223,21 +223,21 @@ int main() {
                             found = true;
                         }
                     }
-                    if (!found) cout << "Íè÷åãî íå íàéäåíî.\n";
+                    if (!found) cout << "ÐÐ¸Ñ‡ÐµÐ³Ð¾ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾.\n";
                     break;
                 }
                 case 6: {
                     sort(appCatalog.begin(), appCatalog.end(), [](MobileApp* a, MobileApp* b) {
                         return a->getRating() > b->getRating();
                         });
-                    cout << "Ïðèëîæåíèÿ îòñîðòèðîâàíû ïî ðåéòèíãó (îò âûñøåãî ê íèçøåìó).\n";
+                    cout << "ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ñ‹ Ð¿Ð¾ Ñ€ÐµÐ¹Ñ‚Ð¸Ð½Ð³Ñƒ (Ð¾Ñ‚ Ð²Ñ‹ÑÑˆÐµÐ³Ð¾ Ðº Ð½Ð¸Ð·ÑˆÐµÐ¼Ñƒ).\n";
                     printAppsTable(appCatalog, cout);
                     break;
                 }
                 case 0:
                     break;
                 default:
-                    cout << "Íåâåðíûé âûáîð.\n";
+                    cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€.\n";
                 }
             } while (subChoice != 0);
             break;
@@ -246,21 +246,21 @@ int main() {
             int subChoice = -1;
             do {
                 cout << "\n----------------------------------------\n";
-                cout << "       ÏÎÄÌÅÍÞ: ÐÀÁÎÒÀ ÑÎ ÑÏÈÑÊÎÌ       \n";
+                cout << "       ÐŸÐžÐ”ÐœÐ•ÐÐ®: Ð ÐÐ‘ÐžÐ¢Ð Ð¡Ðž Ð¡ÐŸÐ˜Ð¡ÐšÐžÐœ       \n";
                 cout << "----------------------------------------\n";
-                cout << " 1. Ïîñìîòðåòü ñïèñîê ñîòðóäíèêîâ\n";
-                cout << " 2. Äîáàâèòü ñîòðóäíèêà\n";
-                cout << " 3. Óäàëèòü ñîòðóäíèêà\n";
-                cout << " 4. Ðåäàêòèðîâàòü ñîòðóäíèêà\n";
-                cout << " 5. Íàéòè ñîòðóäíèêà\n";
-                cout << " 6. Îòñîðòèðîâàòü ñîòðóäíèêîâ ïî ñòàæó\n";
-                cout << " 0. Íàçàä â ãëàâíîå ìåíþ\n";
-                cout << "Âûáåðèòå ïóíêò: ";
+                cout << " 1. ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð²\n";
+                cout << " 2. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ°\n";
+                cout << " 3. Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ°\n";
+                cout << " 4. Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ°\n";
+                cout << " 5. ÐÐ°Ð¹Ñ‚Ð¸ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ°\n";
+                cout << " 6. ÐžÑ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð² Ð¿Ð¾ ÑÑ‚Ð°Ð¶Ñƒ\n";
+                cout << " 0. ÐÐ°Ð·Ð°Ð´ Ð² Ð³Ð»Ð°Ð²Ð½Ð¾Ðµ Ð¼ÐµÐ½ÑŽ\n";
+                cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¿ÑƒÐ½ÐºÑ‚: ";
                 cin >> subChoice;
 
                 switch (subChoice) {
                 case 1: {
-                    cout << "\nÑïèñîê ñîòðóäíèêîâ:\n";
+                    cout << "\nÐ¡Ð¿Ð¸ÑÐ¾Ðº ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¾Ð²:\n";
                     printDevsTable(staffList, cout);
                     ofstream f("devs_report.txt");
                     printDevsTable(staffList, f);
@@ -269,45 +269,45 @@ int main() {
                 }
                 case 2: {
                     string name, pos; int exp;
-                    cout << "ÔÈÎ: "; cin.ignore(); getline(cin, name);
-                    cout << "Äîëæíîñòü: "; getline(cin, pos);
-                    cout << "Ñòàæ (ëåò): "; cin >> exp;
+                    cout << "Ð¤Ð˜Ðž: "; cin.ignore(); getline(cin, name);
+                    cout << "Ð”Ð¾Ð»Ð¶Ð½Ð¾ÑÑ‚ÑŒ: "; getline(cin, pos);
+                    cout << "Ð¡Ñ‚Ð°Ð¶ (Ð»ÐµÑ‚): "; cin >> exp;
                     staffList.push_back(Developer(name, pos, exp));
-                    cout << "Ñîòðóäíèê äîáàâëåí.\n";
+                    cout << "Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸Ðº Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½.\n";
                     break;
                 }
                 case 3: {
                     if (!staffList.empty()) {
                         staffList.pop_front();
-                        cout << "Ïåðâûé ñîòðóäíèê óäàëåí.\n";
+                        cout << "ÐŸÐµÑ€Ð²Ñ‹Ð¹ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸Ðº ÑƒÐ´Ð°Ð»ÐµÐ½.\n";
                     }
                     else {
-                        cout << "Ñïèñîê ïóñò.\n";
+                        cout << "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿ÑƒÑÑ‚.\n";
                     }
                     break;
                 }
                 case 4: {
                     int n;
-                    cout << "Ââåäèòå íîìåð ñîòðóäíèêà (1 - " << staffList.size() << "): ";
+                    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ° (1 - " << staffList.size() << "): ";
                     cin >> n;
                     if (n >= 1 && n <= (int)staffList.size()) {
                         std::list<Developer>::iterator it = staffList.begin();
                         advance(it, n - 1);
                         string newPos; int newExp;
-                        cout << "Íîâàÿ äîëæíîñòü: "; cin.ignore(); getline(cin, newPos);
-                        cout << "Íîâûé ñòàæ: "; cin >> newExp;
+                        cout << "ÐÐ¾Ð²Ð°Ñ Ð´Ð¾Ð»Ð¶Ð½Ð¾ÑÑ‚ÑŒ: "; cin.ignore(); getline(cin, newPos);
+                        cout << "ÐÐ¾Ð²Ñ‹Ð¹ ÑÑ‚Ð°Ð¶: "; cin >> newExp;
                         it->setPosition(newPos);
                         it->setExperience(newExp);
-                        cout << "Äàííûå ñîòðóäíèêà îáíîâëåíû.\n";
+                        cout << "Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑÐ¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ° Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ñ‹.\n";
                     }
                     else {
-                        cout << "Íåâåðíûé íîìåð.\n";
+                        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð½Ð¾Ð¼ÐµÑ€.\n";
                     }
                     break;
                 }
                 case 5: {
                     string qName;
-                    cout << "Ââåäèòå ÔÈÎ äëÿ ïîèñêà: "; cin.ignore(); getline(cin, qName);
+                    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¤Ð˜Ðž Ð´Ð»Ñ Ð¿Ð¾Ð¸ÑÐºÐ°: "; cin.ignore(); getline(cin, qName);
                     bool found = false;
                     for (std::list<Developer>::const_iterator it = staffList.begin(); it != staffList.end(); ++it) {
                         if (it->getFullName() == qName) {
@@ -315,19 +315,19 @@ int main() {
                             found = true;
                         }
                     }
-                    if (!found) cout << "Ñîòðóäíèê íå íàéäåí.\n";
+                    if (!found) cout << "Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸Ðº Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½.\n";
                     break;
                 }
                 case 6: {
                     staffList.sort();
-                    cout << "Ñîòðóäíèêè îòñîðòèðîâàíû ïî ñòàæó.\n";
+                    cout << "Ð¡Ð¾Ñ‚Ñ€ÑƒÐ´Ð½Ð¸ÐºÐ¸ Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ñ‹ Ð¿Ð¾ ÑÑ‚Ð°Ð¶Ñƒ.\n";
                     printDevsTable(staffList, cout);
                     break;
                 }
                 case 0:
                     break;
                 default:
-                    cout << "Íåâåðíûé âûáîð.\n";
+                    cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€.\n";
                 }
             } while (subChoice != 0);
             break;
@@ -336,18 +336,18 @@ int main() {
             int subChoice = -1;
             do {
                 cout << "\n----------------------------------------\n";
-                cout << "       ÏÎÄÌÅÍÞ: ÐÀÁÎÒÀ Ñ ÌÀÑÑÈÂÎÌ       \n";
+                cout << "       ÐŸÐžÐ”ÐœÐ•ÐÐ®: Ð ÐÐ‘ÐžÐ¢Ð Ð¡ ÐœÐÐ¡Ð¡Ð˜Ð’ÐžÐœ       \n";
                 cout << "----------------------------------------\n";
-                cout << " 1. Ïîñìîòðåòü ñïèñîê ïëàòôîðì\n";
-                cout << " 2. Ðåäàêòèðîâàòü ïëàòôîðìó\n";
-                cout << " 3. Îòñîðòèðîâàòü ïëàòôîðìû\n";
-                cout << " 0. Íàçàä â ãëàâíîå ìåíþ\n";
-                cout << "Âûáåðèòå ïóíêò: ";
+                cout << " 1. ÐŸÐ¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¿Ð»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼\n";
+                cout << " 2. Ð ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼Ñƒ\n";
+                cout << " 3. ÐžÑ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼Ñ‹\n";
+                cout << " 0. ÐÐ°Ð·Ð°Ð´ Ð² Ð³Ð»Ð°Ð²Ð½Ð¾Ðµ Ð¼ÐµÐ½ÑŽ\n";
+                cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¿ÑƒÐ½ÐºÑ‚: ";
                 cin >> subChoice;
 
                 switch (subChoice) {
                 case 1: {
-                    cout << "\nÑïèñîê ïëàòôîðì:\n";
+                    cout << "\nÐ¡Ð¿Ð¸ÑÐ¾Ðº Ð¿Ð»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼:\n";
                     printPlatformsTable(targetPlatforms, cout);
                     ofstream f("platforms_report.txt");
                     printPlatformsTable(targetPlatforms, f);
@@ -356,36 +356,36 @@ int main() {
                 }
                 case 2: {
                     int idx; string val;
-                    cout << "Ââåäèòå èíäåêñ (0 - 3): "; cin >> idx;
+                    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ (0 - 3): "; cin >> idx;
                     if (idx >= 0 && idx < 4) {
-                        cout << "Íîâîå íàçâàíèå ïëàòôîðìû: "; cin.ignore(); getline(cin, val);
+                        cout << "ÐÐ¾Ð²Ð¾Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿Ð»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼Ñ‹: "; cin.ignore(); getline(cin, val);
                         targetPlatforms[idx] = val;
-                        cout << "Ïëàòôîðìà èçìåíåíà.\n";
+                        cout << "ÐŸÐ»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼Ð° Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð°.\n";
                     }
                     else {
-                        cout << "Íåâåðíûé èíäåêñ.\n";
+                        cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð¸Ð½Ð´ÐµÐºÑ.\n";
                     }
                     break;
                 }
                 case 3: {
                     sort(targetPlatforms.begin(), targetPlatforms.end());
-                    cout << "Ïëàòôîðìû îòñîðòèðîâàíû ïî àëôàâèòó.\n";
+                    cout << "ÐŸÐ»Ð°Ñ‚Ñ„Ð¾Ñ€Ð¼Ñ‹ Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ñ‹ Ð¿Ð¾ Ð°Ð»Ñ„Ð°Ð²Ð¸Ñ‚Ñƒ.\n";
                     printPlatformsTable(targetPlatforms, cout);
                     break;
                 }
                 case 0:
                     break;
                 default:
-                    cout << "Íåâåðíûé âûáîð.\n";
+                    cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€.\n";
                 }
             } while (subChoice != 0);
             break;
         }
         case 0:
-            cout << "Âûõîä èç ïðîãðàììû...\n";
+            cout << "Ð’Ñ‹Ñ…Ð¾Ð´ Ð¸Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹...\n";
             break;
         default:
-            cout << "Íåâåðíûé âûáîð. Ïîïðîáóéòå ñíîâà.\n";
+            cout << "ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€. ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÑÐ½Ð¾Ð²Ð°.\n";
         }
     } while (mainMenuChoice != 0);
 
